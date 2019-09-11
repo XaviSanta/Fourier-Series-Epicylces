@@ -81,8 +81,7 @@ function setupXYFourier(x, y, i, fourier, rotation) {
 function drawCircle(i, prevx, prevy, radius) {
     stroke(255, 100);
     noFill();
-    if (radius > 5)
-        ellipse(i + prevx, i + prevy, radius * 2);
+    ellipse(prevx, prevy, radius * 2);
 }
 
 function drawConnection(prevx, prevy, x, y) {
