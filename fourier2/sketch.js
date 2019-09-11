@@ -29,7 +29,7 @@ function setupDrawingPoints() {
 }
 
 function draw() {
-    background(0);
+    background(255);
     translate(200, 200);
     
     vx = drawEpiCylces(350,-100, fourierX, 0);
@@ -79,14 +79,14 @@ function setupXYFourier(x, y, i, fourier, rotation) {
 }
 
 function drawCircle(i, prevx, prevy, radius) {
-    stroke(255, 100);
+    stroke(0, 100);
     noFill();
     ellipse(prevx, prevy, radius * 2);
 }
 
 function drawConnection(prevx, prevy, x, y) {
     stroke(200);
-    noFill(255);
+    noFill(0);
     line(prevx, prevy, x, y);
 }
 
