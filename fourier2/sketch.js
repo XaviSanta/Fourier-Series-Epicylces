@@ -86,16 +86,18 @@ function drawCircle(i, prevx, prevy, radius) {
 
 function drawConnection(prevx, prevy, x, y) {
     stroke(200);
-    noFill(0);
+    noFill();
     line(prevx, prevy, x, y);
 }
 
 function drawDot(x, y) {
-    noFill();
+    noFill(0);
+    stroke(100);
     ellipse(x, y, 2);
 }
 
 function drawSinusoide(path) {
+    stroke(0);
     beginShape();
     translate(0, 0); 
     for(let i = 0; i < path.length; i++) {
