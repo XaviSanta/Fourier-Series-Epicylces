@@ -55,7 +55,7 @@ function setupXYFourier(x, y, i) {
 function drawCircle(i, prevx, prevy, radius) {
     stroke(255, 100);
     noFill();
-    ellipse(i + prevx, i + prevy, radius * 2);
+    ellipse(prevx, prevy, radius * 2);
 }
 
 function drawConnection(prevx, prevy, x, y) {
