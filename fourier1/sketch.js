@@ -33,7 +33,7 @@ function createSliders() {
 }
 
 function drawTextSliders() {
-    text(sliderNumCircles.value(), sliderSpeed.x + sliderSpeed.width, 35);
+    text(sliderNumCircles.value(), sliderNumCircles.x + sliderNumCircles.width, 35);
     text('Num Circles', 20, 35);
     
     text(sliderSpeed.value(), sliderSpeed.x + sliderSpeed.width, 65);

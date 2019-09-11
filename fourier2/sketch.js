@@ -9,13 +9,14 @@ let fourierX;
 let fourierY;
 
 function setup() {
+    createCanvas(windowWidth,windowHeight);
     createSliders();
-    createCanvas(1200,1400);
+    textSize(30);
     setupDrawingPoints();
 }
 
 function setupDrawingPoints() {
-    const skip = 15;
+    const skip = 20;
     for(let i = 0; i < drawing.length; i += skip) {
         signalX.push(drawing[i].x);
         signalY.push(drawing[i].y);
@@ -30,6 +31,7 @@ function setupDrawingPoints() {
 
 function draw() {
     background(255);
+    drawTextSliders();
     translate(200, 200);
     
     vx = drawEpiCylces(350,-100, fourierX, 0);
@@ -39,7 +41,7 @@ function draw() {
 
     drawConnection(vx.x, vx.y, v.x, v.y);
     drawConnection(vy.x, vy.y, v.x, v.y);
-    drawSinusoide(path);
+    drawImage(path);
 
     updateTime();
 
@@ -47,8 +49,19 @@ function draw() {
 }
 
 function createSliders() {
-    sliderNumCircles = createSlider(1, 15, 2);
-    sliderSpeed = createSlider(1, 10, 4);
+    // sliderSkipPoints = createSlider(1, 15, 2);
+    // sliderSkipPoints.position(250, 20);
+
+    // sliderSpeed = createSlider(1, 10, 4);
+    // sliderSpeed.position(250, 50);
+}
+
+function drawTextSliders() {
+    // text(sliderSkipPoints.value(), sliderSkipPoints.x + sliderSkipPoints.width, 35);
+    // text('Skip Points', 20, 35);
+    
+    // text(sliderSpeed.value(), sliderSpeed.x + sliderSpeed.width, 65);
+    // text('Speed Rotation', 20, 65);
 }
 
 function drawEpiCylces(x, y, fourier, rotation) {
@@ -59,7 +72,7 @@ function drawEpiCylces(x, y, fourier, rotation) {
         if(i == fourier.length - 1) 
             path.unshift(y);
             
-        drawCircle(i, prevx, prevy, radius);
+        drawCircle(prevx, prevy, radius);
         drawConnection(prevx, prevy, x, y);
         drawDot(x, y);
     }
@@ -78,7 +91,7 @@ function setupXYFourier(x, y, i, fourier, rotation) {
     return [x, y, radius]
 }
 
-function drawCircle(i, prevx, prevy, radius) {
+function drawCircle(prevx, prevy, radius) {
     stroke(0, 100);
     noFill();
     ellipse(prevx, prevy, radius * 2);
@@ -96,7 +109,7 @@ function drawDot(x, y) {
     ellipse(x, y, 2);
 }
 
-function drawSinusoide(path) {
+function drawImage(path) {
     stroke(0);
     beginShape();
     translate(0, 0); 
