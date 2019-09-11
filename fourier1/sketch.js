@@ -6,14 +6,14 @@ let sliderSpeed;
 
 function setup() {
     createCanvas(windowWidth,windowHeight);
-    textSize(15);
+    textSize(30);
     createSliders();
 }
 
 function draw() {
     background(255);
-    text('Speed Rotation', sliderSpeed.x * 2 + sliderSpeed.width, 65);
-    text('Num Circles', sliderNumCircles.x * 2 + sliderNumCircles.width, 35);
+
+    drawTextSliders();
     translate(200, 200);
     
     setupCircles(0,0);
@@ -26,10 +26,18 @@ function draw() {
 
 function createSliders() {
     sliderNumCircles = createSlider(1, 15, 2);
-    sliderNumCircles.position(20, 20);
+    sliderNumCircles.position(250, 20);
 
     sliderSpeed = createSlider(1, 10, 4);
-    sliderSpeed.position(20, 50);
+    sliderSpeed.position(250, 50);
+}
+
+function drawTextSliders() {
+    text(sliderNumCircles.value(), sliderSpeed.x + sliderSpeed.width, 35);
+    text('Num Circles', 20, 35);
+    
+    text(sliderSpeed.value(), sliderSpeed.x + sliderSpeed.width, 65);
+    text('Speed Rotation', 20, 65);
 }
 
 function setupCircles(x, y) {
