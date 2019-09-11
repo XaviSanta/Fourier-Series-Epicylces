@@ -5,12 +5,15 @@ let sliderNumCircles;
 let sliderSpeed;
 
 function setup() {
+    createCanvas(windowWidth,windowHeight);
+    textSize(15);
     createSliders();
-    createCanvas(1200,400);
 }
 
 function draw() {
     background(255);
+    text('Speed Rotation', sliderSpeed.x * 2 + sliderSpeed.width, 65);
+    text('Num Circles', sliderNumCircles.x * 2 + sliderNumCircles.width, 35);
     translate(200, 200);
     
     setupCircles(0,0);
@@ -23,7 +26,10 @@ function draw() {
 
 function createSliders() {
     sliderNumCircles = createSlider(1, 15, 2);
+    sliderNumCircles.position(20, 20);
+
     sliderSpeed = createSlider(1, 10, 4);
+    sliderSpeed.position(20, 50);
 }
 
 function setupCircles(x, y) {

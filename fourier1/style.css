@@ -1,14 +1,5 @@
-* {
-}
-
-body
-{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    height: 50vh;
-    
+canvas {
+    display: block;
 }
 
 .title  
@@ -18,11 +9,11 @@ body
 
 /*---------LOADER BLUR---------*/
 
-.loader
+/* .loader
 {
     position: absolute;
-    top: 175px;
-    left: 475px;
+    top: 25vh;
+    left: 25vh;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -79,4 +70,4 @@ body
     border-radius: 50%;
 }
 
-/*---------LOADER BLUR---------*/
+---------LOADER BLUR--------- */
