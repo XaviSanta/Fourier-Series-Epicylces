@@ -10,7 +10,7 @@ function setup() {
 }
 
 function draw() {
-    background(0);
+    background(255);
     translate(200, 200);
     
     setupCircles(0,0);
@@ -53,13 +53,13 @@ function setupXYFourier(x, y, i) {
 }
 
 function drawCircle(i, prevx, prevy, radius) {
-    stroke(255, 100);
+    stroke(0, 100);
     noFill();
     ellipse(prevx, prevy, radius * 2);
 }
 
 function drawConnection(prevx, prevy, x, y) {
-    stroke(255, 203, 20);
+    stroke(0);
     fill(255);
     line(prevx, prevy, x, y);
 }
