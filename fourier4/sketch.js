@@ -41,7 +41,6 @@ function setupDrawingPoints() {
 }
 
 function draw() {
-    background(250);
     if (state == USER) {
         userDraw();
     } else if(state == FOURIER) {
