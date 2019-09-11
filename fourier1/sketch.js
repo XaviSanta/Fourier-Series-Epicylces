@@ -14,7 +14,7 @@ function draw() {
     background(255);
 
     drawTextSliders();
-    translate(200, 200);
+    translate(100, 200);
     
     setupCircles(0,0);
     drawSinusoide(wave);
