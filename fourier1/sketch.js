@@ -1,7 +1,7 @@
 let time = 0;
 let wave = [];
 let speed = 0.02;
-let sliderNumCircles;
+let sliderSkipPoints;
 let sliderSpeed;
 
 function setup() {
@@ -17,7 +17,7 @@ function draw() {
     translate(100, 200);
     
     setupCircles(0,0);
-    drawSinusoide(wave);
+    drawImage(wave);
 
     time += sliderSpeed.value() * 0.01;
 
@@ -25,15 +25,15 @@ function draw() {
 }
 
 function createSliders() {
-    sliderNumCircles = createSlider(1, 15, 2);
-    sliderNumCircles.position(250, 20);
+    sliderSkipPoints = createSlider(1, 15, 2);
+    sliderSkipPoints.position(250, 20);
 
     sliderSpeed = createSlider(1, 10, 4);
     sliderSpeed.position(250, 50);
 }
 
 function drawTextSliders() {
-    text(sliderNumCircles.value(), sliderNumCircles.x + sliderNumCircles.width, 35);
+    text(sliderSkipPoints.value(), sliderSkipPoints.x + sliderSkipPoints.width, 35);
     text('Num Circles', 20, 35);
     
     text(sliderSpeed.value(), sliderSpeed.x + sliderSpeed.width, 65);
@@ -41,11 +41,11 @@ function drawTextSliders() {
 }
 
 function setupCircles(x, y) {
-    for(let i = 0; i < sliderNumCircles.value(); i++){
+    for(let i = 0; i < sliderSkipPoints.value(); i++){
         let prevx = x;
         let prevy = y;
         [x, y, radius] = setupXYFourier(x, y, i);
-        if(i == sliderNumCircles.value() - 1) wave.unshift(y);
+        if(i == sliderSkipPoints.value() - 1) wave.unshift(y);
         
         drawCircle(i, prevx, prevy, radius);
         drawConnection(prevx, prevy, x, y);
@@ -83,7 +83,7 @@ function drawDot(x, y) {
     ellipse(x, y, 2);
 }
 
-function drawSinusoide(wave) {
+function drawImage(wave) {
     beginShape();
     translate(100, 0); 
     for(let i = 0; i < wave.length; i++) {
